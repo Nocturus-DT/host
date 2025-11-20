@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard - CloudHost Pro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo"><i class="fas fa-cloud"></i> CloudHost Pro</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="products.html">Produtos</a></li>
+      <li><a href="tutorial.html">Tutorial</a></li>
+      <li><a href="dashboard.html" class="active">Dashboard</a></li>
+      <li><div class="cart-icon" onclick="Cart.open()"><i class="fas fa-shopping-cart"></i><span class="cart-badge" id="cartBadge">0</span></div></li>
+      <li><button class="btn btn-primary" id="loginBtn" onclick="Auth.openLogin()">Login</button></li>
+      <li><button class="btn btn-outline" id="logoutBtn" onclick="Auth.logout()" style="display:none">Sair</button></li>
+    </ul>
+  </nav>
+
+  <div class="notification" id="notification"><p id="notificationText"></p></div>
+
+  <div class="container" id="dashboardContent" style="display:none">
+    <h2 class="page-title">Bem-vindo, <span id="userName">Usuário</span>!</h2>
+
+    <div class="stats-grid">
+      <div class="stat-card">
+        <i class="fas fa-server"></i>
+        <div class="stat-value">3</div>
+        <p>Servidores Ativos</p>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-chart-line"></i>
+        <div class="stat-value">99.9%</div>
+        <p>Uptime</p>
+      </div>
+      <div class="stat-card">
+        <i class="fas fa-download"></i>
+        <div class="stat-value">1.2 TB</div>
+        <p>Tráfego</p>
+      </div>
+    </div>
+
+    <h3 style="margin: 3rem 0 1.5rem;">Seus Servidores</h3>
+    <div class="products-grid">
+      thuis <!-- Você pode adicionar cards de servidores aqui -->
+    </div>
+  </div>
+
+  <div class="container text-center" id="loginRequired" style="padding: 6rem 0;">
+    <h2>Faça login para acessar o Dashboard</h2>
+    <button class="btn btn-primary" onclick="Auth.openLogin()" style="margin-top: 2rem; padding: 1rem 2rem; font-size: 1.2rem;">Fazer Login</button>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="logo"><i class="fas fa-cloud"></i> CloudHost Pro</div>
+      <p>© 2025 CloudHost Pro. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

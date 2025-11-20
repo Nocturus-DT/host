@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tutorial - CloudHost Pro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/global.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/navbar.css">
+  <link rel="stylesheet" href="css/tutorial.css">
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="logo"><i class="fas fa-cloud"></i> CloudHost Pro</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="products.html">Produtos</a></li>
+      <li><a href="tutorial.html" class="active">Tutorial</a></li>
+      <li><a href="dashboard.html" id="dashboardLink" style="display:none">Dashboard</a></li>
+      <li><div class="cart-icon" onclick="Cart.open()"><i class="fas fa-shopping-cart"></i><span class="cart-badge" id="cartBadge">0</span></div></li>
+      <li><button class="btn btn-primary" id="loginBtn" onclick="Auth.openLogin()">Login</button></li>
+      <li><button class="btn btn-outline" id="logoutBtn" onclick="Auth.logout()" style="display:none">Sair</button></li>
+    </ul>
+  </nav>
+
+  <div class="notification" id="notification"><p id="notificationText"></p></div>
+
+  <div class="container">
+    <h2 class="page-title">Como Começar em 5 Passos</h2>
+
+    <div class="tutorial-steps">
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <h3>Crie sua conta</h3>
+          <p>Clique em Login e use Google, GitHub ou email/senha. Tudo salvo automaticamente.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <h3>Escolha seu plano</h3>
+          <p>Vá até Produtos e adicione ao carrinho o que precisar.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <h3>Finalize a compra</h3>
+          <p>Abra o carrinho e clique em Finalizar Compra (simulação).</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <h3>Acesse o Dashboard</h3>
+          <p>Após login, o Dashboard aparece com seus servidores.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <h3>Gerencie tudo</h3>
+          <p>Monitore uso, reinicie servidores e escale quando quiser.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center" style="margin-top: 3rem;">
+      <a href="products.html" class="btn btn-primary">Começar Agora</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="logo"><i class="fas fa-cloud"></i> CloudHost Pro</div>
+      <p>© 2025 CloudHost Pro. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Modal Login -->
+  <div class="modal" id="loginModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="Modal.close('loginModal')">×</button>
+      <h2>Entrar na CloudHost Pro</h2>
+      <div class="oauth-buttons">
+        <button class="oauth-btn" onclick="Auth.oauth('google')"><i class="fab fa-google"></i> Continuar com Google</button>
+        <button class="oauth-btn" onclick="Auth.oauth('github')"><i class="fab fa-github"></i> Continuar com GitHub</button>
+        <button class="oauth-btn" onclick="Auth.oauth('facebook')"><i class="fab fa-facebook"></i> Continuar com Facebook</button>
+      </div>
+      <div class="divider"><span>ou</span></div>
+      <form onsubmit="Auth.login(event)" class="login-form">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" id="loginEmail" placeholder="seu@email.com" required>
+        </div>
+        <div class="form-group">
+          <label>Senha</label>
+          <input type="password" id="loginPassword" placeholder="••••••••" required>
+        </div>
+        <button type="submit" class="btn btn-primary full-width">Entrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Modal Carrinho -->
+  <div class="modal" id="cartModal">
+    <div class="modal-content">
+      <button class="modal-close" onclick="Modal.close('cartModal')">×</button>
+      <h2>Carrinho de Compras</h2>
+      <div id="cartItems" class="cart-items"></div>
+      <div id="cartTotal" class="cart-total" style="display:none">
+        Total: R$ <span id="totalAmount">0.00</span>
+      </div>
+      <button class="btn btn-primary full-width" onclick="Cart.checkout()" id="checkoutBtn" disabled>Finalizar Compra</button>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
