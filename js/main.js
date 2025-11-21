@@ -10,9 +10,9 @@ window.Cart = Cart;
 window.Modal = { open: openModal, close: closeModal };
 
 // Mensagem de boas-vindas
-notify('Bem-vindo à CloudHost Pro! 🚀', 'success');
+notify('Bem-vindo à NS Bridge! 🚀', 'success');
 
 // Atualiza UI de login em todas as páginas
-if (localStorage.getItem('cloudhost-user')) {
+if (localStorage.getItem('nsbridge-user')) {
   document.getElementById('userName') && Auth.openLogin(); // só pra atualizar nome se existir
 }
